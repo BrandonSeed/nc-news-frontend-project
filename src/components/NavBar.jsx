@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom"
+
 function NavBar() {
     return (
-        <>
-            <button>Home</button>
+        <nav>
+            <Link to='/'>Home</Link>
             <button>Users</button>
-        </>
+        </nav>
     )
 }
 
