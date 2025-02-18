@@ -23,7 +23,7 @@ function ArticlesList() {
             <ul className="aricleList">
                 {articles.map((article) => {
                     return <li className="articleListCard">
-                        <ArticleCard article={article}></ArticleCard>
+                        <ArticleCard article={article} />
                     </li>
                 })}
             </ul>

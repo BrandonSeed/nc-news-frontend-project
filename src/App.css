@@ -22,3 +22,9 @@ ul {
     max-width: 400px;
     height: auto;
 }
+
+.commentListCard {
+    border: 1px solid;
+    border-color: darkgray;
+    width: 80%;
+}
