@@ -13,7 +13,7 @@ ul {
     max-height: 200px;
 }
 
-nav {
+.NavBar {
     border: 1px solid;
     border-color: cornflowerblue;
 }
