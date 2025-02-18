@@ -6,7 +6,7 @@ function ArticlesDisplay() {
             <p>topics</p>
             <p>sort</p>
             <p>order</p>
-            <ArticlesList></ArticlesList>
+            <ArticlesList />
         </>
     )
 }
