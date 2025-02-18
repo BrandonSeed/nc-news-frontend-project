@@ -1,14 +1,18 @@
-import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar'
 import ArticlesDisplay from './components/ArticlesDisplay'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
       <NavBar></NavBar>
-      <ArticlesDisplay></ArticlesDisplay>
+      <Routes>
+        <Route path="/" element={ <ArticlesDisplay /> }></Route>
+        
+
+      </Routes>
     </>
   )
 }
