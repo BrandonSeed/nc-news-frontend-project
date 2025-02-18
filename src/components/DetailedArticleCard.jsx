@@ -3,18 +3,20 @@ import { useState, useEffect } from "react"
 import getArticle from "../../utils/getArticle"
 
 function DetailedArticleCard() {
-    const [article, setArticle] = useState([])
+    const [article, setArticle] = useState({})
+    const [postedAt, setPostedAt] = useState("")
     const { article_id } = useParams()
     useEffect(() => {
         getArticle(article_id).then((articleData) => {
             setArticle(articleData)
+            setPostedAt(`${articleData.created_at.slice(0,10)} at ${articleData.created_at.slice(11,16)}`)
         })
     }, [])
 
     return (
         <>
             <h2>{article.title}</h2>
-            <p>Posted: {article.created_at.slice(0,10)} at {article.created_at.slice(11,16)}</p>
+            <p>Posted: {postedAt}</p>
             <p>Authored by: {article.author}</p>
             <img src={article.article_img_url} alt="realted article image" className="detailedArticleCardImg"/>
             <p>Votes: {article.votes}</p>
