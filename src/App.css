@@ -16,3 +16,7 @@ ul {
     max-width: 200px;
     max-height: 200px;
 }
+nav {
+    border: 1px solid;
+    border-color: cornflowerblue;
+}
