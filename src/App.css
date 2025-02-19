@@ -1,3 +1,7 @@
+* {
+    text-align: center;
+}
+
 .articleListCard {
     border: 1px solid;
     border-color: blue;
@@ -14,6 +18,7 @@ ul {
 }
 
 .NavBar {
+    align-self: center;
     border: 1px solid;
     border-color: cornflowerblue;
 }
@@ -27,4 +32,12 @@ ul {
     border: 1px solid;
     border-color: darkgray;
     width: 80%;
+}
+
+#center {
+    margin: auto;
+}
+
+#commentInput {
+    width: 50%;
 }
