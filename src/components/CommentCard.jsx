@@ -1,5 +1,4 @@
 function CommentCard({comment}) {
-    console.log("in the comment card", comment)
     return (
         <>
             <p>Commentor: {comment.author}</p>
