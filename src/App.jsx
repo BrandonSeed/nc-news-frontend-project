@@ -7,14 +7,14 @@ import Article from './components/Article'
 function App() {
 
   return (
-    <>
+    <div>
       <NavBar />
       <Routes>
         <Route path="/" element={ <ArticlesDisplay /> } />
         <Route path="/articles/:article_id" element={ <Article />} />
 
       </Routes>
-    </>
+    </div>
   )
 }
 
