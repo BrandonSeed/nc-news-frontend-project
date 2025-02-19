@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import getComments from "../../utils/getComments"
 import CommentCard from "./CommentCard"
 
-function CommentsList() {
+function CommentsList({updateComments, setUpdateComments}) {
     const [isLoading, setIsLoading] = useState(true)
     const [comments, setComments] = useState([])
     const { article_id } = useParams()
@@ -11,8 +11,9 @@ function CommentsList() {
         getComments(article_id).then((commentsData) => {
             setComments(commentsData)
             setIsLoading(false)
+            setUpdateComments(false)
         })
-    }, [])
+    }, [updateComments])
 
     if (isLoading) {
         return (
