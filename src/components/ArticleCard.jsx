@@ -8,6 +8,7 @@ function ArticleCard({article}) {
             <p>{article.topic}</p>
             <p>Posted: {article.created_at.slice(0,10)} at {article.created_at.slice(11,16)}</p>
             <p>Votes: {article.votes}</p>
+            <p>Comment Count: {article.comment_count}</p>
             <nav>
                 <Link to={`/articles/${article.article_id}`}>Go to Article</Link>
             </nav>
