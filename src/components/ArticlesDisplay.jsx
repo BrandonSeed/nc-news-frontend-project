@@ -3,7 +3,6 @@ import ArticlesList from "./ArticlesList"
 import TopicSelection from "./TopicSelection"
 
 function ArticlesDisplay() {
-    const [selectedTopic, setSelectedTopic] = useState("")
     return (
         <div>
             <TopicSelection />
