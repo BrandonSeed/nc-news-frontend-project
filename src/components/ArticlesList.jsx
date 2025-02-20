@@ -9,14 +9,15 @@ function ArticlesList() {
     const [searchParams] = useSearchParams()
     let topic = searchParams.get("topic")
     let sort = searchParams.get("sort_by")
+    let order = searchParams.get("order")
     useEffect(() => {
         if (topic === "All") topic = undefined
         if (sort === "none") sort = undefined
-        getArticles(topic, sort).then((articlesData) => {
+        getArticles(topic, sort, order).then((articlesData) => {
             setArticles(articlesData)
             setIsLoading(false)
         })
-    }, [topic, sort])
+    }, [topic, sort, order])
 
     if (isLoading) {
         return (
