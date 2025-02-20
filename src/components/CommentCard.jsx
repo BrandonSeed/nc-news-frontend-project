@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/user"
 import deleteComment from "../../utils/deleteComment"
 
-function CommentCard({comment, setUpdateComments}) {
+function CommentCard({comment, updateComments, setUpdateComments}) {
     const userName = useContext(UserContext)
     const [userComment, setUserComment] = useState(false)
     const [deletingComment, setDeletingComment] = useState("")
@@ -12,7 +12,10 @@ function CommentCard({comment, setUpdateComments}) {
         if (comment.author === userName) {
             setUserComment(true)
         }
-    },[])
+        else {
+            setUserComment(false)
+        }
+    },[updateComments])
 
     function removeComment() {
         if (commentInDeletion === false) {
@@ -23,7 +26,6 @@ function CommentCard({comment, setUpdateComments}) {
                 setCommentInDeletion(false)
                 setUpdateComments(true)
                 setDeletingComment("")
-                setUserComment(false)
             })
             .catch((err) => {
                 setDeletingComment("Error Deleting.")
