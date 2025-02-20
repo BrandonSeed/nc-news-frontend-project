@@ -1,7 +1,11 @@
 import axios from 'axios'
 
-function getArticles() {
-    return axios.get("https://backend-project-nc-news-4tvn.onrender.com/api/articles")
+function getArticles(topic) {
+return axios.get("https://backend-project-nc-news-4tvn.onrender.com/api/articles", {
+    params: {
+        topic: topic
+    }
+})
     .then((response) => {
         return response.data.articles
     })
