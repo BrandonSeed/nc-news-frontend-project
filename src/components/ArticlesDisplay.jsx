@@ -6,10 +6,10 @@ function ArticlesDisplay() {
     const [selectedTopic, setSelectedTopic] = useState("")
     return (
         <div>
-            <TopicSelection setSelectedTopic={setSelectedTopic}/>
+            <TopicSelection />
             <p>sort</p>
             <p>order</p>
-            <ArticlesList selectedTopic={selectedTopic}/>
+            <ArticlesList />
         </div>
     )
 }
