@@ -26,7 +26,7 @@ function CommentsList({updateComments, setUpdateComments}) {
             <ul>
                 {comments.map((comment) =>{
                     return <li className="commentListCard">
-                        <CommentCard comment={comment} />
+                        <CommentCard comment={comment} setUpdateComments={setUpdateComments}/>
                     </li>
                 })}
             </ul>
