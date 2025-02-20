@@ -1,12 +1,12 @@
-import { useState } from "react"
 import ArticlesList from "./ArticlesList"
 import TopicSelection from "./TopicSelection"
+import SortSelection from "./SortSelection"
 
 function ArticlesDisplay() {
     return (
         <div>
             <TopicSelection />
-            <p>sort</p>
+            <SortSelection />
             <p>order</p>
             <ArticlesList />
         </div>
