@@ -4,16 +4,16 @@ import deleteComment from "../../utils/deleteComment"
 
 function CommentCard({comment, updateComments, setUpdateComments}) {
     const userName = useContext(UserContext)
-    const [userComment, setUserComment] = useState(false)
+    const [canComment, setCanComment] = useState(false)
     const [deletingComment, setDeletingComment] = useState("")
     const [commentInDeletion, setCommentInDeletion] = useState(false)
 
     useEffect(() => {
         if (comment.author === userName) {
-            setUserComment(true)
+            setCanComment(true)
         }
         else {
-            setUserComment(false)
+            setCanComment(false)
         }
     },[updateComments])
 
@@ -40,7 +40,7 @@ function CommentCard({comment, updateComments, setUpdateComments}) {
             <p>Posted: {comment.created_at.slice(0,10)} at {comment.created_at.slice(11,16)}</p>
             <p>Votes: {comment.votes}</p>
             <p>{comment.body}</p>
-            {userComment ? <button className="commentDeleteBtn" onClick={removeComment}>Delete Comment</button> : null}
+            {canComment ? <button className="commentDeleteBtn" onClick={removeComment}>Delete Comment</button> : null}
             {deletingComment ? <p>{deletingComment}</p> : null}
         </>
     )

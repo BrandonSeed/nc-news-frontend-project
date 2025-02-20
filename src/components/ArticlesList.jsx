@@ -6,16 +6,18 @@ import { useSearchParams } from "react-router-dom"
 function ArticlesList() {
     const [isLoading, setIsLoading] = useState(true)
     const [articles, setArticles] = useState([])
-    const [searchTopic] = useSearchParams()
-    let topic = searchTopic.get("topic")
-    console.log(topic)
+    const [searchParams] = useSearchParams()
+    let topic = searchParams.get("topic")
+    let sort = searchParams.get("sort_by")
+    let order = searchParams.get("order")
     useEffect(() => {
         if (topic === "All") topic = undefined
-        getArticles(topic).then((articlesData) => {
+        if (sort === "none") sort = undefined
+        getArticles(topic, sort, order).then((articlesData) => {
             setArticles(articlesData)
             setIsLoading(false)
         })
-    }, [topic])
+    }, [topic, sort, order])
 
     if (isLoading) {
         return (

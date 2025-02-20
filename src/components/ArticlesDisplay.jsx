@@ -1,14 +1,14 @@
-import { useState } from "react"
 import ArticlesList from "./ArticlesList"
 import TopicSelection from "./TopicSelection"
+import SortSelection from "./SortSelection"
+import OrderButton from "./OrderButton"
 
 function ArticlesDisplay() {
-    const [selectedTopic, setSelectedTopic] = useState("")
     return (
         <div>
             <TopicSelection />
-            <p>sort</p>
-            <p>order</p>
+            <SortSelection />
+            <OrderButton />
             <ArticlesList />
         </div>
     )
