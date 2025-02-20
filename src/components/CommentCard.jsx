@@ -23,6 +23,7 @@ function CommentCard({comment, setUpdateComments}) {
                 setCommentInDeletion(false)
                 setUpdateComments(true)
                 setDeletingComment("")
+                setUserComment(false)
             })
             .catch((err) => {
                 setDeletingComment("Error Deleting.")
