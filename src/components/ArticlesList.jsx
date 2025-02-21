@@ -39,7 +39,7 @@ function ArticlesList() {
 
     return (
         <>
-            <ul className="aricleList">
+            <ul className="articleList">
                 {articles.map((article) => {
                     return <li className="articleListCard">
                         <ArticleCard article={article} />
