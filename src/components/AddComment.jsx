@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { UserContext } from "../context/user"
 import postComment from "../../utils/postComment"
 
-function Addcomment({setUpdateComments}) {
+function Addcomment({isCommentsLoading, setUpdateComments}) {
     const { article_id } = useParams()
     const userName = useContext(UserContext)
     const [comment, setComment] = useState("")
@@ -33,16 +33,19 @@ function Addcomment({setUpdateComments}) {
         }
     }
 
-    return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="commentInput">Comment:</label>
-                <textarea name="body" id="commentInput" placeholder="Share your thoughts here!" cols="50" rows="5" required onChange={handleChange}></textarea>
-                <button type="submit">Post my comment</button>
-            </form>
-            {postingComment ? <p>{postingComment}</p> : null}
-        </>
-    )
+    if (!isCommentsLoading) {
+        return (
+            <>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="commentInput">Comment:</label>
+                    <textarea name="body" id="commentInput" placeholder="Share your thoughts here!" cols="50" rows="5" required onChange={handleChange}></textarea>
+                    <button type="submit">Post my comment</button>
+                </form>
+                {postingComment ? <p>{postingComment}</p> : null}
+            </>
+        )
+    }
+
 }
 
 export default Addcomment
