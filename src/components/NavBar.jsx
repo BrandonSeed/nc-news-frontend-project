@@ -4,7 +4,6 @@ function NavBar() {
     return (
         <nav className="NavBar">
             <Link to='/'>Home</Link>
-            <button>Users</button>
         </nav>
     )
 }
