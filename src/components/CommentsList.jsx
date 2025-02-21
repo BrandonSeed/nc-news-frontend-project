@@ -3,19 +3,18 @@ import { useParams } from "react-router-dom"
 import getComments from "../../utils/getComments"
 import CommentCard from "./CommentCard"
 
-function CommentsList({updateComments, setUpdateComments}) {
-    const [isLoading, setIsLoading] = useState(true)
+function CommentsList({isCommentsLoading, setIsCommentsLoading, updateComments, setUpdateComments}) {
     const [comments, setComments] = useState([])
     const { article_id } = useParams()
     useEffect(() => {
         getComments(article_id).then((commentsData) => {
             setComments(commentsData)
-            setIsLoading(false)
+            setIsCommentsLoading(false)
             setUpdateComments(false)
         })
     }, [updateComments])
 
-    if (isLoading) {
+    if (isCommentsLoading) {
         return (
             <p>Loading Comments....</p>
         )

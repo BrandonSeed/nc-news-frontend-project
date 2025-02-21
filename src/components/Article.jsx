@@ -5,11 +5,12 @@ import Addcomment from "./AddComment"
 
 function Article() {
     const [updateComments, setUpdateComments] = useState(false)
+    const [isCommentsLoading, setIsCommentsLoading] = useState(true)
     return (
         <>
             <DetailedArticleCard />
-            <Addcomment setUpdateComments={setUpdateComments}/>
-            <CommentsList updateComments={updateComments} setUpdateComments={setUpdateComments}/>
+            <Addcomment isCommentsLoading={isCommentsLoading} setUpdateComments={setUpdateComments}/>
+            <CommentsList isCommentsLoading={isCommentsLoading} setIsCommentsLoading={setIsCommentsLoading} updateComments={updateComments} setUpdateComments={setUpdateComments}/>
         </>
     )
 }
