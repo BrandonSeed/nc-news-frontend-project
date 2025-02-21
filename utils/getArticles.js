@@ -7,7 +7,7 @@ return axios.get("https://backend-project-nc-news-4tvn.onrender.com/api/articles
         sort_by: sort,
         order: order
     }
-})
+    })
     .then((response) => {
         return response.data.articles
     })

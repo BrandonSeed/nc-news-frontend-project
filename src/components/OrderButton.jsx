@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { useSearchParams } from "react-router-dom"
+import { createSearchParams, useSearchParams } from "react-router-dom"
 
 function OrderButton() {
     const [orderDirection, setOrderDirection] = useState("ASC")
     const [orderParam, setOrderParam] = useSearchParams()
 
     function changeOrder() {
-        const newParam = new URLSearchParams(orderParam)
+        let newParam = createSearchParams(orderParam)
         newParam.set("order", orderDirection)
         setOrderParam(newParam)
         if (orderDirection === "DESC") {
@@ -18,9 +18,9 @@ function OrderButton() {
     }
 
     return (
-        <button onClick={() => {
+        <button className="orderBtn" onClick={() => {
             changeOrder()
-        }}>Chnage order to: {orderDirection}</button>
+        }}>Change order to: {orderDirection}</button>
     )
 }
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import getTopics from "../../utils/getTopics"
-import { useSearchParams } from "react-router-dom"
+import { createSearchParams, useSearchParams } from "react-router-dom"
 
 function TopicSelection() {
     const [topics, setTopics] = useState([])
@@ -14,7 +14,7 @@ function TopicSelection() {
     }, [])
 
     function setTopicParam(selectedTopic) {
-        const newParam = new URLSearchParams(topicSearchParam)
+        let newParam = createSearchParams(topicSearchParam)
         newParam.set("topic", selectedTopic)
         setTopicSearchParam(newParam)
     }
@@ -23,7 +23,7 @@ function TopicSelection() {
         <select name="topics" id="topics" onChange={(event) => {
             setTopicParam(event.target.value)
         }}>
-            <option value="All">All Topics</option>
+            <option value="All" selected="selected">All Topics</option>
             {topics.map((topic) => {
                 return <option value={topic.slug}>{topic.slug}</option>
             })}

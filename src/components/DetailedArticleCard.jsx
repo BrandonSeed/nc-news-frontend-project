@@ -8,12 +8,18 @@ function DetailedArticleCard() {
     const [article, setArticle] = useState({})
     const [votes, setVotes] = useState(0)
     const [error, setError] = useState(null)
+    const [articleError, setArticleError] = useState("")
     const { article_id } = useParams()
+
     useEffect(() => {
         getArticle(article_id).then((articleData) => {
             setArticle(articleData)
             setVotes(articleData.votes)
             setIsLoading(false)
+            setArticleError("")
+        })
+        .catch((err) => {
+            setArticleError(err.message)
         })
     }, [])
 
@@ -35,6 +41,12 @@ function DetailedArticleCard() {
             setVotes((votes) => votes + 1)
             setError("Your vote was unsuccessful. Try again.")
         })
+    }
+
+    if (articleError) {
+        return (
+            <p>{articleError}, please search for a valid article.</p>
+        )
     }
 
     if (isLoading) {
